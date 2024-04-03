@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'embed', sans-serif;
+    box-sizing: border-box;
+}
+:root{
+    --backgrond-color: #fff;
+    --text-color: #000;
+    --title-color: #000;
+}
+.dark-mode{
+    --backgrond-color: #000;
+    --text-color: #fff;
+    --title-color: #fff;
+
+}
+body{
+    background: var(--backgrond-color);
+    color: var(--text-color);
+}
+.header{
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 8%;
+    position: relative;
+    overflow: hidden;
+}
+nav{
+    display: flex ;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 100;
+}
+.logo img{
+    width: 200px;
+}
+nav ul{
+    width: 100%;
+    text-align: right;
+    list-style: none;
+    margin: 50px;
+}
+nav ul li{
+    display: inline-block;
+    margin: 5px 15px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+}
+.trigger-btn{
+    background: rgb(0, 8, 255);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.trigger-btn img{
+    width: 35px;
+    margin-left: 10px;
+}
+.content{
+    margin-top: 10%;
+    max-width: 600px;
+}
+.content h1{
+    font-size: 60px;
+    color: var(--title-color)
+    font-weight: 600;
+}
+.content a{
+    background: rgb(0, 8, 255);
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 30px;
+    text-decoration: none;
+}
+.content p{
+    font-size: 20px;
+    text-align: justify;
+}
+.photo-profil {
+    position:absolute;
+    bottom: 0;
+    right: 10%; 
+}
+.photo-profil img{
+    width: 40vw;
+    display: block;
+}
