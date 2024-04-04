@@ -71,7 +71,7 @@ nav ul li a{
 }
 .content h1{
     font-size: 60px;
-    color: var(--title-color)
+    color: var(--title-color);
     font-weight: 600;
 }
 .content a{
@@ -92,6 +92,8 @@ nav ul li a{
     position:absolute;
     bottom: 0;
     right: 10%; 
+    /* Ne pas oublier de bien metre (z-index: -1;) */
+    z-index: -1;
 }
 .photo-profil img{
     width: 40vw;
