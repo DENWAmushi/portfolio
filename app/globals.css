@@ -1,0 +1,531 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 70%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-sf-pro), var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.011em;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  :lang(ja) {
+    font-feature-settings: "palt" 1;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.apple-blur {
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark .apple-blur {
+  background-color: rgba(10, 10, 10, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.apple-gradient {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.dark .apple-gradient {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.apple-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.dark .apple-card {
+  background: linear-gradient(145deg, rgba(25, 25, 25, 0.7), rgba(15, 15, 15, 0.9));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.apple-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.dark .apple-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 122, 255, 0.1);
+  border: 1px solid rgba(0, 122, 255, 0.1);
+}
+
+.apple-button {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 20px;
+}
+
+.apple-button:hover {
+  transform: translateY(-2px);
+}
+
+.apple-section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.dark .apple-section.bg-secondary {
+  background-color: rgba(15, 15, 15, 0.7);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 122, 255, 0.03));
+}
+
+@media (max-width: 768px) {
+  .apple-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .apple-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.apple-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apple-text-gradient {
+  background: linear-gradient(90deg, #007aff, #ff2d55);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.apple-text-balance {
+  text-wrap: balance;
+}
+
+.apple-fade-in {
+  animation: apple-fade-in 1s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes apple-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.apple-fade-in-1 {
+  animation-delay: 0.1s;
+}
+
+.apple-fade-in-2 {
+  animation-delay: 0.3s;
+}
+
+.apple-fade-in-3 {
+  animation-delay: 0.5s;
+}
+
+.apple-fade-in-4 {
+  animation-delay: 0.7s;
+}
+
+.apple-parallax {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.apple-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+@media (max-width: 640px) {
+  .apple-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.apple-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.apple-badge {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.dark .apple-badge {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.apple-badge:hover {
+  transform: scale(1.05);
+}
+
+.apple-btn {
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+}
+
+.apple-btn-primary {
+  background-color: #007aff;
+  color: white;
+}
+
+.dark .apple-btn-primary {
+  background-color: #007aff;
+  box-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
+}
+
+.apple-btn-primary:hover {
+  background-color: #0066cc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+}
+
+.dark .apple-btn-primary:hover {
+  box-shadow: 0 0 25px rgba(0, 122, 255, 0.5);
+}
+
+.apple-btn-secondary {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+
+.dark .apple-btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.apple-btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.dark .apple-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.apple-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  margin: 2rem 0;
+}
+
+.dark .apple-divider {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.responsive-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.responsive-flex > * {
+  flex: 1 1 300px;
+}
+
+@media (max-width: 640px) {
+  .responsive-flex > * {
+    flex: 1 1 100%;
+  }
+}
+
+.responsive-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .responsive-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-container {
+    padding: 0 1rem;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section-divider {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+}
+
+.section-divider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  background: linear-gradient(to bottom right, transparent 49.5%, var(--background) 50%);
+}
+
+.timeline-dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background-color: hsl(var(--primary));
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.form-input-focus {
+  @apply focus:ring-2 focus:ring-apple-blue/30 focus:border-apple-blue transition-all duration-200;
+}
+
+.form-label {
+  @apply text-sm font-medium text-foreground/80 mb-1.5;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.img-rounded {
+  @apply rounded-2xl overflow-hidden;
+}
+
+.img-shadow {
+  @apply shadow-lg;
+}
+
+.img-hover-zoom {
+  @apply overflow-hidden;
+}
+
+.img-hover-zoom img {
+  @apply transition-transform duration-500;
+}
+
+.img-hover-zoom:hover img {
+  @apply transform scale-110;
+}
+
+.card-glass {
+  @apply bg-white/80 dark:bg-black/80 backdrop-blur-md border border-white/20 dark:border-black/20;
+}
+
+.dark .glass-card {
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.btn-hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.btn-hover-shadow {
+  @apply transition-all duration-300 hover:shadow-lg;
+}
+
+.section-padding {
+  @apply py-16 md:py-24 lg:py-32;
+}
+
+.section-margin {
+  @apply my-16 md:my-24 lg:my-32;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4 {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark .text-muted-foreground {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .neon-effect {
+  box-shadow: 0 0 5px rgba(0, 122, 255, 0.5), 0 0 10px rgba(0, 122, 255, 0.3);
+}
+
+.dark .neon-effect:hover {
+  box-shadow: 0 0 10px rgba(0, 122, 255, 0.7), 0 0 20px rgba(0, 122, 255, 0.5);
+}
+
+.dark input,
+.dark textarea {
+  background-color: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark input:focus,
+.dark textarea:focus {
+  border-color: rgba(0, 122, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.25);
+}
+
+.dark .hover-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 122, 255, 0.2);
+  border: 1px solid rgba(0, 122, 255, 0.1);
+}
+
+.dark .progress-bar {
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+.dark .progress-bar-fill {
+  background: linear-gradient(90deg, #007aff, #5e5ce6);
+  box-shadow: 0 0 10px rgba(0, 122, 255, 0.5);
+}
+
